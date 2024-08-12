@@ -14,6 +14,7 @@ class TravelApprovalDetail extends Model
         'travel_approval_id',
         'faculty_member_name',
         'faculty_member_position',
+        'faculty_member_level',
     ];
     //เชื่อมกับตารางtravelApproval
     public function travelApproval()

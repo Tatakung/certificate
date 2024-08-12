@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     {{-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>แบบขออนุมัติเดินทางไปปฏิบัติงาน</title>
 
     {{-- <meta http-equiv="Content-Language" content="th" /> --}}
@@ -25,9 +24,11 @@
 
 
     {{-- ฟ้อนไทยนะ --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
 
 
 
@@ -44,40 +45,44 @@
             size: A4;
             margin: 0;
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: normal;
             font-weight: normal;
-            /* src: url("{{asset('fonts/THSarabunNew.ttf')}}") format('truetype') ;  */
+            /* src: url("{{ asset('fonts/THSarabunNew.ttf') }}") format('truetype') ;  */
             src: url("{{ public_path('fonts/THSarabunNew.ttf') }}") format('truetype');
 
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: normal;
             font-weight: bold;
-            /* src: url("{{asset('fonts/THSarabunNew Bold.ttf')}}") format('truetype') ;  */
+            /* src: url("{{ asset('fonts/THSarabunNew Bold.ttf') }}") format('truetype') ;  */
             src: url("{{ public_path('fonts/THSarabunNew Bold.ttf') }}") format('truetype');
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: italic;
             font-weight: normal;
-            /* src: url("{{asset('fonts/THSarabunNew Italic.ttf')}}") format('truetype') ;  */
+            /* src: url("{{ asset('fonts/THSarabunNew Italic.ttf') }}") format('truetype') ;  */
             src: url("{{ public_path('fonts/THSarabunNew Italic.ttf') }}") format('truetype');
 
         }
+
         @font-face {
             font-family: 'THSarabunNew';
             font-style: italic;
             font-weight: bold;
-            /* src: url("{{asset('fonts/THSarabunNew BoldItalic.ttf')}}") format('truetype') ;  */
+            /* src: url("{{ asset('fonts/THSarabunNew BoldItalic.ttf') }}") format('truetype') ;  */
             src: url("{{ public_path('fonts/THSarabunNew BoldItalic.ttf') }}") format('truetype');
 
         }
 
 
-        
+
         /* กำหนดขนาดของเนื้อหาให้เต็มหน้ากระดาษ A4 */
         html,
         body {
@@ -90,31 +95,27 @@
             font-weight: bold;
 
             /* font-family: "Sarabun", !important; */
-            font-family: "THSarabunNew" ; 
+            font-family: "THSarabunNew";
             /* font-size: 16px;  */
         }
 
 
-        table {
+        /* table {
             border-collapse: collapse;
-             font-size: 18px ; 
-             line-height: 10px; 
-             overflow: hidden; 
-             white-space: nowrap;     
-        }
-
-        td,
-        {
-        border: 1px solid;
-        font-size: 18px; 
-        line-height: 10px; 
-        overflow: hidden; 
-        white-space: nowrap; 
-        text-overflow: ellipsis; /* เพิ่มไว้สำหรับตัดข้อความที่เกินความกว้างของเซลล์ */
-        }
+             font-size: 18px ;
+             line-height: 10px;
+             overflow: hidden;
+             white-space: nowrap;
+        } */
 
 
-       
+
+
+
+
+
+
+
 
         /* สร้างกรอบดำ */
         .black-border {
@@ -130,8 +131,9 @@
             padding: 10mm;
 
         }
-          /* สร้างกรอบดำ */
-          .black-border-two {
+
+        /* สร้างกรอบดำ */
+        .black-border-two {
             position: absolute;
             top: 8mm;
             left: 8mm;
@@ -139,13 +141,13 @@
             bottom: 8mm;
             width: calc(100% - 40mm);
             height: calc(100% - 40mm);
-            border: 1px solid #000000;
+            border: 1px solid #ffffff;
             box-sizing: border-box;
             padding: 10mm;
 
         }
 
-        
+
 
         .left-frame {
             position: absolute;
@@ -181,423 +183,525 @@
         }
 
         .header-a {
-            
+
             margin-top: -1.25cm;
             text-align: center;
             font-size: 23px;
             font-weight: bold;
         }
 
-       
+
 
         .da {
             text-align: right;
             padding-right: 80px;
-            margin-top: -20px ; 
-            font-size: 18px ; 
+            margin-top: -20px;
+            font-size: 18px;
         }
 
         .for {
             text-align: left;
             margin-top: -0.7cm;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
         .s {
             padding-left: 36px;
             margin-top: -49px;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
         .asd2 {
             margin-top: -10px;
         }
+
         .asd1 {
             margin-top: -10px;
         }
+
         .employee-info {
             margin-top: -57px;
             white-space: pre-line;
-            font-size: 18px; 
-        }
-        .datefordate{
-            margin-top: -20px;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
-        .work{
+        .datefordate {
+            margin-top: -20px;
+            font-size: 18px;
+        }
+
+        .work {
             /* text-align: left; */
             /* padding-left: 36px; */
             margin-top: -9px;
-            font-size: 18px; 
+            font-size: 18px;
         }
 
-
-        th,
-         {
-            /* font-family: 'Sarabun' !important; */
-            text-align: center;
-            border: 1px solid #000000;
-        }
-  
         .sheet-one {
             margin-top: 3px;
             margin-left: -4px;
-            font-size: 18px; 
+            font-size: 18px;
 
-}
-        
+        }
+
         .zxz {
-            margin-top: -15px ; 
+            margin-top: 1.5px;
             text-align: left;
             padding-left: 50px;
-            font-size: 18px ; 
-        }
-        .pp {
-            text-align: right;
-            margin-right: 1px ; 
-            margin-top: -6px  ; 
             font-size: 18px;
         }
-        .sign{
-            margin-left: 10.7cm  ; 
-            margin-top: -16px;
+
+        .pp {
+            text-align: right;
+            margin-right: 1px;
+            margin-top: -15px;
+            font-size: 18px;
+        }
+
+        .sign {
+            margin-left: 10.2cm;
+            margin-top: -20px;
             position: fixed;
             font-size: 18px;
         }
-        .budget{
-            margin-top: -20px;
-            font-size: 18px ; 
+
+        .numbercode {
+            margin-left: 15.9cm;
+            margin-top: -41px;
+            position: fixed;
+            font-size: 18px;
         }
-        .left-a{
-            font-size: 18px ; 
+
+        .budget {
+            margin-top: -20px;
+            font-size: 18px;
+        }
+
+        .left-a {
+            font-size: 18px;
             text-align: center;
             margin-top: -20px;
         }
-        .right-a{
-            font-size: 18px ; 
+
+        .right-a {
+            font-size: 18px;
             text-align: center;
             margin-top: -47px;
         }
- 
-        .right-bracket{
+
+        .right-bracket {
             text-align: center;
             margin-top: -26px;
-            font-size: 18px ; 
+            font-size: 18px;
         }
-        .right-line-a{
+
+        .right-line-a {
             margin-top: -26px;
             font-size: 18px;
             text-align: center;
         }
-        .right-line-as{
+
+        .right-line-as {
             margin-top: -26px;
             font-size: 18px;
             text-align: center;
         }
-        .right-line-ab{
+
+        .right-line-ab {
             margin-top: -26px;
             font-size: 18px;
             text-align: center;
         }
-        .right-line-b{
+
+        .right-line-b {
             margin-top: -10px;
             font-size: 18px;
-            text-align: center ; 
-        }
-        .right-line-c{
-            margin-top: -26px;
-            font-size: 18px ;
-            text-align: center ;  
-        }
-        .right-line-d{
-            margin-top: -26px;
-            font-size: 18px ; 
-            text-align: center ; 
-        }
-        .right-line-e{
             text-align: center;
-            font-size: 18px ; 
+        }
+
+        .right-line-c {
+            margin-top: -26px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .right-line-d {
+            margin-top: -26px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .right-line-e {
+            text-align: center;
+            font-size: 18px;
             margin-top: -26px;
 
         }
-        .left-line-a{
+
+        .left-line-a {
             margin-top: -14px;
             font-size: 18px;
-            text-align: center ; 
+            text-align: center;
         }
-        .left-line-b{
+
+        .left-line-b {
             /* text-align: center; */
             margin-top: -26px;
-            margin-left: 1.93cm ; 
+            margin-left: 1.23cm;
             font-size: 18px;
-        
+
         }
-        .left-bracket{
+
+        .left-bracket {
             text-align: center;
             margin-top: -26px;
             font-size: 18px;
+            margin-left: -1.9cm;
         }
-        .left-line-c{
-            text-align: center;
-            margin-top: -26px;
-            font-size: 18px;
-        }
-        .left-line-d{
-            margin-top: -26px;
-            font-size: 18px;
-            text-align: center ; 
-        }
-        .left-line-e{
+
+        .left-line-c {
             /* text-align: center; */
             margin-top: -26px;
-            margin-left: 1.93cm ; 
+            margin-left: 1.23cm;
             font-size: 18px;
         }
-        .left-bracket-a{
+
+        .left-line-d {
+            margin-top: -26px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .left-line-e {
+            /* text-align: center; */
+            margin-top: -26px;
+            margin-left: 1.23cm;
+            font-size: 18px;
+        }
+
+        .left-bracket-a {
             text-align: center;
             margin-top: -26px;
             font-size: 18px;
+            margin-left: -1.9cm;
         }
-        .left-line-f{
+
+        .left-line-f {
+            /* text-align: center; */
+            margin-top: -26px;
+            font-size: 18px;
+            margin-left: 1.23cm;
+        }
+
+        .left-line-g {
+            margin-top: -26px;
+            font-size: 18px;
             text-align: center;
-            margin-top: -26px;
-            font-size: 18px;
         }
-        .left-line-g{
-            margin-top: -26px;
-            font-size: 18px;
-            text-align: center ; 
-        }
-        
 
 
-        .left-line-h{
+
+        .left-line-h {
             /* text-align: center; */
             margin-top: -26px;
-            margin-left: 1.93cm ; 
-            font-size: 18px ; 
+            margin-left: 1.23cm;
+            font-size: 18px;
         }
-        .left-bracket-i{
+
+        .left-bracket-i {
             text-align: center;
             margin-top: -26px;
             font-size: 18px;
+            margin-left: -1.9cm;
         }
-        .left-line-j{
-            text-align: center;
+
+        .left-line-j {
+            /* text-align: center; */
             margin-top: -26px;
             font-size: 18px;
+            margin-left: 1.23cm;
         }
+
         .black-box {
             width: 0.3em;
             height: 0.3em;
             background-color: rgb(0, 0, 0);
             padding: 0.3em;
-            border: 2px solid rgb(0, 0, 0); 
+            border: 2px solid rgb(0, 0, 0);
         }
+
         .white-box {
             width: 0.3em;
             height: 0.3em;
             background-color: rgb(255, 255, 255);
             padding: 0.3em;
-            border: 2px solid rgb(0, 0, 0); 
+            border: 2px solid rgb(0, 0, 0);
         }
+
         .two-header {
             margin-top: -10px;
             text-align: center;
             font-size: 23px;
-            font-weight: bold ; 
+            font-weight: bold;
         }
-        .two-point-a{
+
+        .two-point-a {
             text-align: right;
-            margin-top: 25px; 
-            font-size: 18px ; 
-        }
-        .two-point-b{
-            margin-left: 11.6cm ; 
-            margin-top: -20px; 
-            position: fixed;
-            font-size: 18px ; 
-        }
-        .two-point-c{
-            position: fixed;
-            text-align: right;
-            margin-left: 11.1cm ; 
-            margin-top: 10px; 
-            font-size: 18px ; 
-        }
-        .two-point-d{
-            position: fixed;
-            text-align: right;
-            margin-left: 11.1cm ; 
-            margin-top: 41px; 
-            font-size: 18px ; 
-        }
-        .footer-onet{
-            text-align: right;
-            margin-top: 28.7cm ; 
-            margin-right: 32px ; 
-            font-size: 12px;
-            
-        }
-        #carother{
-            margin-top: 10px ; 
-        }
-        .ipemployeename{
-        margin-left: 3.1cm;
-    }
-    .employee-at {
-            position: fixed;
-            top: 2.29cm; 
-            left: 3.2cm; 
-            font-size: 18px ; 
-        }
-        .employee-name {
-            position: fixed;
-            top: 2.99cm; 
-            left: 4.2cm; 
-            font-size: 18px ; 
-        }
-        .employee-position{
-            position: fixed;
-            top: 2.99cm; 
-            left: 11.1cm;  
-            font-size: 18px ; 
-        }
-        .employee-level{
-            position: fixed;
-            top: 3cm; 
-            right:2.4cm; 
-            font-size: 18px ;
-        }
-        .employee-department{
-            position: fixed;
-            top: 3.72cm; 
-            left: 3cm; 
+            margin-top: 6px;
             font-size: 18px;
         }
-        .employee-faculty_count{
+
+        .two-point-b {
+            margin-left: 10.6cm;
+            margin-top: -20px;
             position: fixed;
-            top: 3.72cm;
-            left: 12.1cm; 
+            font-size: 18px;
+        }
+
+        .two-point-c {
+            position: fixed;
+            text-align: right;
+            margin-left: 10.1cm;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .two-point-d {
+            position: fixed;
+            text-align: right;
+            margin-left: 10.1cm;
+            margin-top: 41px;
+            font-size: 18px;
+        }
+
+        .footer-onet {
+            text-align: right;
+            margin-top: 28.7cm;
+            margin-right: 32px;
+            font-size: 12px;
+
+        }
+
+        #carother {
+            margin-top: 10px;
+        }
+
+        .ipemployeename {
+            margin-left: 3.1cm;
+        }
+
+        .employee-at {
+            position: fixed;
+            top: 2.29cm;
+            left: 3.2cm;
+            font-size: 18px;
+        }
+
+        .employee-name {
+            position: fixed;
+            top: 2.99cm;
+            left: 4.2cm;
+            font-size: 18px;
+        }
+
+        .employee-position {
+            position: fixed;
+            top: 2.99cm;
+            left: 11.1cm;
+            font-size: 18px;
+        }
+
+        .employee-level {
+            position: fixed;
+            top: 3cm;
+            right: 2.4cm;
+            font-size: 18px;
+        }
+
+        .employee-department {
+            position: fixed;
+            top: 3.74cm;
+            left: 3cm;
+            font-size: 18px;
+        }
+
+        .employee-faculty_count {
+            position: fixed;
+            top: 3.74cm;
+            left: 12.2cm;
             font-size: 18px;
 
         }
-        .travelapproval-start_date{
+
+        .travelapproval-start_date {
             position: fixed;
-            top: 4.49cm; 
-            left: 4.2cm; 
-            font-size: 18px ; 
-        }.travelapproval-end_date{
-            position: fixed;
-            top: 4.49cm; 
-            left: 10.65cm; 
-            font-size: 18px ;
+            top: 4.49cm;
+            left: 4.2cm;
+            font-size: 18px;
         }
+
+        .travelapproval-end_date {
+            position: fixed;
+            top: 4.49cm;
+            left: 10.65cm;
+            font-size: 18px;
+        }
+
         /* .carregistration-2{
             position: fixed;
-            top: 14.87cm; 
-            left: 10.65cm; 
+            top: 14.87cm;
+            left: 10.65cm;
         }
         .carregistration-1{
             position: fixed;
-            top: 14.60cm; 
-            left: 10.65cm; 
+            top: 14.60cm;
+            left: 10.65cm;
         } */
-        .travelapproval-vehicle_number{
+        .travelapproval-vehicle_number {
             position: fixed;
-            top: 15.18cm; 
-            left: 14.65cm;   
-        }
-        .dash{
-            position: fixed;
-            top: 15.1cm; 
-            left: 14.65cm;   
-        }
-        .travelapproval-vacation_start_date{
-            position: fixed;
-            top: 15.9cm; 
-            left: 6cm;   
-        }
-        .travelapproval-vacation_end_date{
-            position: fixed;
-            top: 15.9cm; 
-            left: 9.59cm;     
+            top: 15.18cm;
+            left: 14.65cm;
         }
 
-        .travelapproval-day{
+        .dash {
             position: fixed;
-            top: 15.9cm; 
-            left: 16.5cm;     
+            top: 15.1cm;
+            left: 14.65cm;
+        }
+
+        .travelapproval-vacation_start_date {
+            position: fixed;
+            top: 15.9cm;
+            left: 6cm;
+        }
+
+        .travelapproval-vacation_end_date {
+            position: fixed;
+            top: 15.9cm;
+            left: 9.59cm;
+        }
+
+        .travelapproval-day {
+            position: fixed;
+            top: 15.9cm;
+            left: 16.5cm;
         }
 
 
-        .travelapproval-vacation_start_date-vacation_end_date-dash-1{
+        .travelapproval-vacation_start_date-vacation_end_date-dash-1 {
             position: fixed;
-            top: 15.91cm; 
-            left: 10cm;   
+            top: 15.91cm;
+            left: 10cm;
         }
-        .travelapproval-vacation_start_date-vacation_end_date-dash-2{
+
+        .travelapproval-vacation_start_date-vacation_end_date-dash-2 {
             position: fixed;
-            top: 15.91cm; 
-            left: 17cm;   
+            top: 15.91cm;
+            left: 17cm;
         }
-        .travelapproval-budget_reference{
+
+        .travelapproval-budget_reference {
             position: fixed;
-            top: 16.84cm; 
-            left: 6.20cm;  
-            font-size: 14px ;   
-            color: #ee0b0b ;   
+            top: 16.84cm;
+            left: 6.20cm;
+            font-size: 14px;
         }
-        .travelapproval-action_plan{
+
+        .travelapproval-budget_reference-ft {
             position: fixed;
-            top: 16.84cm; 
-            left: 9.10cm;    
-            font-size: 14px ; 
-            color: #ee0b0b ; 
+            top: 17.45cm;
+            left: 2.20cm;
+            font-size: 18px;
         }
-        .travelapproval-activity{
+
+        .travelapproval-action_plan {
             position: fixed;
-            top: 16.84cm; 
-            left: 16.82cm;    
-            font-size: 14px ;   
-            color: #ee0b0b ;    
+            top: 16.84cm;
+            left: 9.10cm;
+            font-size: 14px;
+
         }
-        .two-point-b-employee-name{
+
+        .travelapproval-activity {
             position: fixed;
-            top: 23.59cm; 
-            left: 13.9cm;  
-            font-size: 18px;  
+            top: 16.84cm;
+            left: 15.50cm;
+            font-size: 14px;
         }
-        .two-point-b-employee-position{
+
+        .travelapproval-jod {
             position: fixed;
-            top: 24.41cm; 
-            left: 14.4cm;    
-            font-size: 18px ; 
+            top: 16.751cm;
+            left: 18.81cm;
+            font-size: 18px;
+
         }
-        .na-date{
+
+        .two-point-b-employee-name {
             position: fixed;
-            top: 25.21cm; 
-            left: 14.4cm;    
-            font-size: 18px ; 
+            top: 26.05cm;
+            left: 13.42cm;
+            font-size: 18px;
         }
-        .Receipt-number{
+
+        .two-point-b-employee-position {
             position: fixed;
-            top: 0.79cm; 
-            right:1.9cm;    
-            font-size: 18px ;      
+            top: 26.87cm;
+            left: 13.9cm;
+            font-size: 18px;
         }
-        .date-j{
+
+        .na-date {
             position: fixed;
-            top: 2.0cm; 
-            left: 13.00cm;         
-            font-size: 18px ; 
+            top: 27.67cm;
+            left: 13.8cm;
+            font-size: 18px;
         }
-        #circlecar, #circlebike {
-        position: relative;
-        top: 5px;
-    }
-    </style>    
+
+        .Receipt-number {
+            position: fixed;
+            top: 0.79cm;
+            right: 1.9cm;
+            font-size: 18px;
+        }
+
+        .date-j {
+            position: fixed;
+            top: 2.0cm;
+            left: 13.00cm;
+            font-size: 18px;
+        }
+
+        #circlecar,
+        #circlebike {
+            position: relative;
+            top: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+
+            overflow: hidden;
+            font-size: 18px;
+            line-height: 10px;
+            vertical-align: middle;
+            line-height: 10px;
+        }
+
+
+        /* table {
+            border-collapse: collapse;
+             font-size: 18px ;
+             line-height: 10px;
+             overflow: hidden;
+             white-space: nowrap;
+        } */
+    </style>
 </head>
 
 <body>
@@ -612,9 +716,9 @@
         {{-- <div>
             <p>เลขรับที่.................../................</p>
         </div> --}}
-      
+
         <div class="da">
-            <p>{{$thaiDateWithYear}}</p>
+            <p>{{ $thaiDateWithYear }}</p>
         </div>
 
         <span class="Receipt-number">เลขรับที่........../...........</span>
@@ -627,11 +731,13 @@
 
 
         <div class="s">
-            <p>ข้าพเจ้า...................................................................ตำแหน่ง...................................................................................ระดับ..............</p>
+            <p>ข้าพเจ้า...................................................................ตำแหน่ง...................................................................................ระดับ..............
+            </p>
         </div>
         <span class="employee-at">{{ $travelapproval->at }}</span>
         {{-- <span class="employee-name">{{ $employee->name }}</span> --}}
-        <span class="employee-name">{{ $travelapproval->prefix}}{{ $travelapproval->name}} {{ $travelapproval->lname}}</span>
+        <span class="employee-name">{{ $travelapproval->prefix }}{{ $travelapproval->name }}
+            {{ $travelapproval->lname }}</span>
 
         <span class="employee-position">{{ $travelapproval->position }}</span>
         <span class="employee-level">{{ $travelapproval->level }}</span>
@@ -639,99 +745,194 @@
 
 
         <p class="employee-info">
-            สังกัด........................................................................................พร้อมด้วยคณะ...............คน &nbsp;&nbsp;&nbsp;&nbsp;ขออนุมัติเดินทางไปปฏิบัติงานระหว่าง
+            สังกัด........................................................................................พร้อมด้วยคณะ...............คน&nbsp;&nbsp;ขออนุมัติเดินทางไปปฏิบัติงานระหว่าง
         </p>
 
         <span class="employee-department">{{ $travelapproval->department }}</span>
-        <span class="employee-faculty_count">{{ $travelapproval->faculty_count }}</span>
+        <span class="employee-faculty_count">
+            @if ($travelapproval->faculty_count !== null && $travelapproval->faculty_count !== '')
+                {{ $travelapproval->faculty_count }}
+            @else
+                -
+            @endif
+        </span>
 
 
         <div class="datefordate">
             วันที่....................................................................ถึงวันที่....................................................................ดังนี้
         </div>
-        
+
         <?php
         $startDate = $travelapproval->start_date;
         $endDate = $travelapproval->end_date;
-
+        
         // แปลงเป็นรูปแบบวันที่และปีไทย
         $thaiStartDate = \Carbon\Carbon::parse($startDate)->locale('th')->isoFormat('LL');
         $thaiEndDate = \Carbon\Carbon::parse($endDate)->locale('th')->isoFormat('LL');
-
+        
         // แปลงปีเป็นปีพุทธศักราช
-        $thaiStartYear = (int)\Carbon\Carbon::parse($startDate)->addYears(543)->format('Y');
-        $thaiEndYear = (int)\Carbon\Carbon::parse($endDate)->addYears(543)->format('Y');
-
+        $thaiStartYear = (int) \Carbon\Carbon::parse($startDate)->addYears(543)->format('Y');
+        $thaiEndYear = (int) \Carbon\Carbon::parse($endDate)->addYears(543)->format('Y');
+        
         // เปลี่ยนปีในวันที่เป็นปีพุทธศักราช
-        $thaiStartDateWithYear = str_replace((string)\Carbon\Carbon::parse($startDate)->year, (string)$thaiStartYear, $thaiStartDate);
-        $thaiEndDateWithYear = str_replace((string)\Carbon\Carbon::parse($endDate)->year, (string)$thaiEndYear, $thaiEndDate);
-    ?>
-    
-        <span class="travelapproval-start_date">{{$thaiStartDateWithYear}}</span>
-        <span class="travelapproval-end_date">{{$thaiEndDateWithYear}}</span>
+        $thaiStartDateWithYear = str_replace((string) \Carbon\Carbon::parse($startDate)->year, (string) $thaiStartYear, $thaiStartDate);
+        $thaiEndDateWithYear = str_replace((string) \Carbon\Carbon::parse($endDate)->year, (string) $thaiEndYear, $thaiEndDate);
+        ?>
+
+        <span class="travelapproval-start_date">{{ $thaiStartDateWithYear }}</span>
+        <span class="travelapproval-end_date">{{ $thaiEndDateWithYear }}</span>
 
 
         <div class="work">
             1. งานที่ปฏิบัติตามรายการโดยสังเขปต่อไปนี้
         </div>
-
-        
-        <table>
-            <tr>
-                <td style="height: 25px; width: 130px; font-weight: bold; text-align: center; border-color: #000000;">วัน เดือน ปี </td>
-                <td style="width: 200px; font-weight: bold; text-align: center; border-color: #000000;">ท้องที่หรือสถานที่ปฏิบัติงาน</td>
-                <td style="width: 320px; font-weight: bold; text-align: center; border-color: #000000;">งานที่ปฏิบัติ</td>
-            </tr>
-            @foreach ($workassignment as $show)
+        {{-- <table>
+            <thead>
                 <tr>
-                    <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;">
-                        <?php
+                    <th style="width: 130px;">วัน เดือน ปี</th>
+                    <th style="width: 200px;">ท้องที่หรือสถานที่ปฏิบัติงาน</th>
+                    <th style="width: 320px;">งานที่ปฏิบัติ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($workassignment as $show)
+                    <tr>
+                        <td style="width: 130px;">{{ $show->date }}</td>
+                        <td style="width: 200px;">{{ $show->location }}</td>
+                        <td style="width: 320px;">{{ $show->task }}</td>
+                    </tr>
+                @endforeach
+        
+                @for ($i = 0; $i < 12 - count($workassignment); $i++)
+                    <tr>
+                        <td style="width: 130px;"></td>
+                        <td style="width: 200px;"></td>
+                        <td style="width: 320px;"></td>
+                    </tr>
+                @endfor
+            </tbody>
+        </table> --}}
+
+        <?php
+        function splitTextIntoLines($text, $maxChars)
+        {
+            $words = preg_split('/\s+/u', $text);
+            $lines = [];
+            $currentLine = '';
+        
+            foreach ($words as $word) {
+                if (mb_strlen($currentLine . ' ' . $word) <= $maxChars) {
+                    $currentLine .= ($currentLine ? ' ' : '') . $word;
+                } else {
+                    if ($currentLine) {
+                        $lines[] = trim($currentLine);
+                        $currentLine = $word;
+                    } else {
+                        $subwords = splitLongWord($word, $maxChars);
+                        $lines = array_merge($lines, $subwords);
+                    }
+                }
+            }
+        
+            if ($currentLine) {
+                $lines[] = trim($currentLine);
+            }
+        
+            return $lines;
+        }
+        
+        function splitLongWord($word, $maxChars)
+        {
+            $subwords = [];
+            $length = mb_strlen($word);
+            $start = 0;
+        
+            while ($start < $length) {
+                $size = $maxChars;
+                $slice = mb_substr($word, $start, $size);
+        
+                // ตรวจสอบว่าไม่ตัดกลางสระหรือวรรณยุกต์
+                while ($size > 1 && preg_match('/^[\p{Mn}\p{Mc}]/u', mb_substr($word, $start + $size, 1))) {
+                    $size--;
+                }
+        
+                // ตรวจสอบว่าไม่ตัดระหว่างพยัญชนะต้นกับสระ
+                while ($size > 1 && preg_match('/^[\p{Lo}]/u', mb_substr($word, $start + $size - 1, 1)) && preg_match('/^[\p{Mn}\p{Mc}]/u', mb_substr($word, $start + $size, 1))) {
+                    $size--;
+                }
+        
+                $slice = mb_substr($word, $start, $size);
+                $subwords[] = $slice;
+                $start += $size;
+            }
+        
+            return $subwords;
+        }
+        ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="height: 25px;width: 130px; text-align: center; font-weight: bold;">วัน เดือน ปี</th>
+                    <th style="width: 200px; text-align: center; font-weight: bold;">ท้องที่หรือสถานที่ปฏิบัติงาน</th>
+                    <th style="width: 313px; text-align: center; font-weight: bold;">งานที่ปฏิบัติ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // สร้างแถวเปล่าจำนวน 12 แถวก่อน
+                $rows = array_fill(0, 12, ['date' => '', 'location' => '', 'task' => '']);
+                
+                // เติมข้อมูลลงในแถวที่สร้างไว้
+                $rowIndex = 0;
+                foreach ($workassignment as $show) {
+                    $locationChunks = splitTextIntoLines($show->location, 32);
+                    $taskChunks = splitTextIntoLines($show->task, 53);
+                    $maxChunks = max(count($locationChunks), count($taskChunks));
+                
+                    for ($i = 0; $i < $maxChunks; $i++) {
+                        if ($rowIndex >= 12) {
+                            break;
+                        }
+                
                         $thaiDate = \Carbon\Carbon::parse($show->date)
                             ->locale('th')
                             ->isoFormat('LL');
+                
                         $thaiYear = (int) \Carbon\Carbon::parse($show->date)
                             ->addYears(543)
                             ->format('Y');
+                
                         $thaiDateWithYear = str_replace((string) \Carbon\Carbon::parse($show->date)->year, (string) $thaiYear, $thaiDate);
-                        ?>
-                        {{ $thaiDateWithYear }}
-                    </td>
-                    <td style="height: 25px; width: 200px; text-align: center; border-color: #000000;">{{ $show->location }}</td>
-                    <td style="height: 25px; width: 320px;  border-color: #000000;">{{ $show->task }}</td>
-                </tr>
-            @endforeach
-            @php
-                $row_count = count($workassignment);
-                $remaining_rows = 12 - $row_count;
-            @endphp
-    
-            @if ($travelapproval->transport !== 'รถยนต์' && $travelapproval->transport !== 'รถจักรยานยนต์')
-                @for ($i = 0; $i < $remaining_rows - 1; $i++)
-                    <tr>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                    </tr>
-                @endfor
-                <tr>
-                    <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                    <td style="height: 25px; width: 130px;border-color: #000000;">หมายเหตุ: {{ $travelapproval->transport }}
-                    </td>
-                    <td style="height: 25px; width: 130px;border-color: #000000;"> ทะเบียน
-                        {{ $travelapproval->vehicle_number }}
-                    </td>
-                </tr>
-            @else
-                @for ($i = 0; $i < $remaining_rows; $i++)
-                    <tr>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                        <td style="height: 25px; width: 130px; text-align: center; border-color: #000000;"></td>
-                    </tr>
-                @endfor
-            @endif
+                
+                        $rows[$rowIndex]['date'] = $i == 0 ? $thaiDateWithYear : '';
+                        $rows[$rowIndex]['location'] = $locationChunks[$i] ?? '';
+                        $rows[$rowIndex]['task'] = $taskChunks[$i] ?? '';
+                        $rowIndex++;
+                    }
+                }
+                
+                // ตรวจสอบเงื่อนไขเพื่อเติมข้อมูลในแถวที่ 12
+                if ($travelapproval->transport !== 'รถยนต์' && $travelapproval->transport !== 'รถจักรยานยนต์') {
+                    $rows[11]['date'] = '';
+                    $rows[11]['location'] = 'หมายเหตุ เดินทางโดย' . $travelapproval->transport;
+                    $rows[11]['task'] = 'ทะเบียน ' . $travelapproval->vehicle_number;
+                }
+                
+                // แสดงแถวทั้งหมด
+                foreach ($rows as $row) {
+                    echo '<tr>';
+                    echo '<td style="height: 25px;width: 130px;text-align: center;">' . $row['date'] . '</td>';
+                    echo '<td style="width: 200px; text-align: left; padding-left: 6px;">' . $row['location'] . '</td>';
+                    echo '<td style="width: 313px; text-align: left; padding-left: 6px;">' . $row['task'] . '</td>';
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
         </table>
-    
+
+
+
 
 
 
@@ -740,53 +941,67 @@
             @if ($travelapproval->transport === 'รถยนต์' || $travelapproval->transport === 'รถจักรยานยนต์')
                 <input type="radio" id="circlecar" name="vehicle" value="car"
                     @if ($travelapproval->transport === 'รถยนต์') checked @endif readonly disabled> รถยนต์
-                
+
                 <input type="radio" id="circlebike" name="vehicle" value="bike"
                     @if ($travelapproval->transport === 'รถจักรยานยนต์') checked @endif readonly disabled> รถจักรยานยนต์
-    
-                {{-- หมายเลขทะเบียน {{ $travelapproval->vehicle_number }} --}}
-                <span style="margin-left: 60px;">หมายเลขทะเบียน..........................................................................</</span>
 
-                {{-- <p class="carregistration-1">หมายเลขทะเบียน123..................................................................</p> --}}
-                <span class="travelapproval-vehicle_number">{{ $travelapproval->vehicle_number }}</span>
-            @else
-                <input type="radio" id="circlecar" name="vehicle" value="car" readonly disabled> รถยนต์
-                <input type="radio" id="circlebike" name="vehicle" value="bike" readonly disabled>รถจักรยานยนต์
-                {{-- หมายเลขทะเบียน --}}
-                {{-- <p class="carregistration-2">หมายเลขทะเบียน..................................................................</p> --}}
-                <span style="margin-left: 60px;">หมายเลขทะเบียน..........................................................................</</span>
-                <span class="dash">-</span>
+                {{-- หมายเลขทะเบียน {{ $travelapproval->vehicle_number }} --}}
+                <span
+                    style="margin-left: 60px;">หมายเลขทะเบียน..........................................................................
+                    </< /span>
+
+                    {{-- <p class="carregistration-1">หมายเลขทะเบียน123..................................................................</p> --}}
+                    <span class="travelapproval-vehicle_number">{{ $travelapproval->vehicle_number }}</span>
+                @else
+                    <input type="radio" id="circlecar" name="vehicle" value="car" readonly disabled> รถยนต์
+                    <input type="radio" id="circlebike" name="vehicle" value="bike" readonly disabled>รถจักรยานยนต์
+                    {{-- หมายเลขทะเบียน --}}
+                    {{-- <p class="carregistration-2">หมายเลขทะเบียน..................................................................</p> --}}
+                    <span
+                        style="margin-left: 60px;">หมายเลขทะเบียน..........................................................................
+                        </< /span>
+                        <span class="dash">-</span>
             @endif
         </div>
 
 
         {{-- <span class="dash">-</span> --}}
 
- 
-       
-            @if ($travelapproval->vacation_start_date !== null && $travelapproval->vacation_end_date !== null)
+
+
+        @if ($travelapproval->vacation_start_date !== null && $travelapproval->vacation_end_date !== null)
             <div class="asd1" style="font-size: 18px;">
-                <p>3. ขอพักแรมในวันที่........................................................................................................................รวม................................................วัน</p>
+                <p>3.
+                    ขอพักแรมในวันที่........................................................................................................................รวม................................................วัน
+                </p>
                 <span class="travelapproval-vacation_start_date">
                     {{-- แปลงเป็นรูปแบบวันที่และปีไทย --}}
                     <?php
-                        $thaiStartDate = \Carbon\Carbon::parse($travelapproval->vacation_start_date)->locale('th')->isoFormat('LL');
-                        $thaiStartYear = (int)\Carbon\Carbon::parse($travelapproval->vacation_start_date)->addYears(543)->format('Y');
-                        $thaiStartDateWithYear = str_replace((string)\Carbon\Carbon::parse($travelapproval->vacation_start_date)->year, (string)$thaiStartYear, $thaiStartDate);
+                    $thaiStartDate = \Carbon\Carbon::parse($travelapproval->vacation_start_date)
+                        ->locale('th')
+                        ->isoFormat('LL');
+                    $thaiStartYear = (int) \Carbon\Carbon::parse($travelapproval->vacation_start_date)
+                        ->addYears(543)
+                        ->format('Y');
+                    $thaiStartDateWithYear = str_replace((string) \Carbon\Carbon::parse($travelapproval->vacation_start_date)->year, (string) $thaiStartYear, $thaiStartDate);
                     ?>
-                    {{ $thaiStartDateWithYear }}
-                    ถึงวันที่
-                </span>
-                
-                <span class="travelapproval-vacation_end_date">
-                    {{-- แปลงเป็นรูปแบบวันที่และปีไทย --}}
                     <?php
-                        $thaiEndDate = \Carbon\Carbon::parse($travelapproval->vacation_end_date)->locale('th')->isoFormat('LL');
-                        $thaiEndYear = (int)\Carbon\Carbon::parse($travelapproval->vacation_end_date)->addYears(543)->format('Y');
-                        $thaiEndDateWithYear = str_replace((string)\Carbon\Carbon::parse($travelapproval->vacation_end_date)->year, (string)$thaiEndYear, $thaiEndDate);
+                    $thaiEndDate = \Carbon\Carbon::parse($travelapproval->vacation_end_date)
+                        ->locale('th')
+                        ->isoFormat('LL');
+                    $thaiEndYear = (int) \Carbon\Carbon::parse($travelapproval->vacation_end_date)
+                        ->addYears(543)
+                        ->format('Y');
+                    $thaiEndDateWithYear = str_replace((string) \Carbon\Carbon::parse($travelapproval->vacation_end_date)->year, (string) $thaiEndYear, $thaiEndDate);
                     ?>
-                    {{ $thaiEndDateWithYear }}
+                    {{ $thaiStartDateWithYear }}&nbsp;ถึง&nbsp;{{ $thaiEndDateWithYear }}
                 </span>
+
+
+
+
+
+
 
                 <span class="travelapproval-day">
                     <?php
@@ -794,28 +1009,38 @@
                     $end_date = \Carbon\Carbon::parse($travelapproval->vacation_end_date)->addDays(1);
                     $days = $end_date->diffInDays($start_date);
                     ?>
-                    {{$days}}
+                    {{ $days }}
                 </span>
-                
 
 
-            </div>    
-             @elseif($travelapproval->vacation_start_date === null && $travelapproval->vacation_end_date === null)
-             <div style="font-size: 18px ; "class="asd2">
-                <p>3. ขอพักแรมในวันที่........................................................................................................................รวม................................................วัน</p>
+
+            </div>
+        @elseif($travelapproval->vacation_start_date === null && $travelapproval->vacation_end_date === null)
+            <div style="font-size: 18px ; "class="asd2">
+                <p>3.
+                    ขอพักแรมในวันที่........................................................................................................................รวม................................................วัน
+                </p>
                 <span class="travelapproval-vacation_start_date-vacation_end_date-dash-1">-</span>
                 <span class="travelapproval-vacation_start_date-vacation_end_date-dash-2">-</span>
-            </div>    
-            @endif
+            </div>
+        @endif
 
-        
+
         <div class="budget">
-            <p>4. งบประมาณใช้จ่ายจากมาตรา............แผนปฏิบัติงาน...................................................................................กิจกรรม.............................</p>
+            <p>4.
+                งบประมาณใช้จ่ายจากมาตรา............แผนปฏิบัติงาน..................................................................กิจกรรม..........................................
+            </p>
         </div>
+        <span class="travelapproval-budget_reference-ft">
+            งบประมาณประจำปีที่ได้รับ........................................เบิกใช้แล้ว.................................................คงเหลือ........................................บาท
+        </span>
+
 
         <span class="travelapproval-budget_reference">{{ $travelapproval->budget_reference }}</span>
         <span class="travelapproval-action_plan">{{ $travelapproval->action_plan }}</span>
         <span class="travelapproval-activity">{{ $travelapproval->activity }}</span>
+
+        <span class="travelapproval-jod">....</span>
 
 
 
@@ -828,9 +1053,13 @@
         </div>
 
         <div class="sign">
-            ({{ $travelapproval->prefix}}{{ $travelapproval->name}} {{ $travelapproval->lname}})
-
+            ({{ $travelapproval->prefix }}{{ $travelapproval->name }} {{ $travelapproval->lname }})
         </div>
+
+        <div class="numbercode">
+            {{ $travelapproval->numberid }}
+        </div>
+
 
         <!-- กรอบฝั่งซ้าย -->
         <div class="side-frame left-frame">
@@ -843,11 +1072,11 @@
             </div>
 
             <div class="left-line-b">
-                <p>ลงชื่อ......................................../............/............</p>
+                <p>ลงชื่อ.................................&nbsp;&nbsp;&nbsp;............/............/............</p>
             </div>
 
             <div class="left-bracket">
-                <p>(......................................................)</p>
+                <p>(..........................................)</p>
             </div>
 
             <div class="left-line-c">
@@ -860,11 +1089,11 @@
 
 
             <div class="left-line-e">
-                <p>ลงชื่อ......................................../............/............</p>
+                <p>ลงชื่อ.................................&nbsp;&nbsp;&nbsp;............/............/............</p>
             </div>
 
             <div class="left-bracket-a">
-                <p>(......................................................)</p>
+                <p>(..........................................)</p>
             </div>
 
             <div class="left-line-f">
@@ -878,11 +1107,11 @@
 
 
             <div class="left-line-h">
-                <p>ลงชื่อ......................................../............/............</p>
+                <p>ลงชื่อ.................................&nbsp;&nbsp;&nbsp;............/............/............</p>
             </div>
 
             <div class="left-bracket-i">
-                <p>(......................................................)</p>
+                <p>(..........................................)</p>
             </div>
 
             <div class="left-line-j">
@@ -904,13 +1133,14 @@
             <div class="right-line-as">
                 <p>.............................................................................................
                 </p>
-            </div> <div class="right-line-ab">
+            </div>
+            <div class="right-line-ab">
                 <p>.............................................................................................
                 </p>
             </div>
 
 
-            
+
 
             <div class="right-line-b">
                 <p>ลงชื่อ....................................................................................</p>
@@ -939,7 +1169,7 @@
             กยท.-ฝกค.-กตจ./2599-01
         </p>
     </div>
-    
+
 
 
 
@@ -952,70 +1182,141 @@
 
 
 
+
+
+
+
+
+        <?php
+        
+        function splitTextIntoLines_two($text, $maxChars)
+        {
+            $lines = [];
+            $currentLine = '';
+            $textLength = mb_strlen($text);
+        
+            for ($i = 0; $i < $textLength; $i++) {
+                $currentLine .= mb_substr($text, $i, 1);
+                if (mb_strlen($currentLine) >= $maxChars) {
+                    $lines[] = trim($currentLine);
+                    $currentLine = '';
+                }
+            }
+        
+            if (!empty($currentLine)) {
+                $lines[] = trim($currentLine);
+            }
+        
+            return $lines;
+        }
+        ?>
+
         <table border="1">
             <thead>
                 <tr>
-                    <th style="width: 100px; height: 40px;">ลำดับที่</th>
-                    <th style="width: 250px;">ชื่อ-สกุล</th>
-                    <th style="width: 150px;">ตำแหน่ง/ระดับ</th>
-                    <th style="width: 150px;">หมายเหตุ</th>
+                    <th style="width: 100px; height: 37px; text-align: center; border: 1px solid;">ลำดับที่</th>
+                    <th style="width: 210px; text-align: center; border: 1px solid;">ชื่อ-สกุล</th>
+                    <th style="width: 190px; text-align: center; border: 1px solid;">ตำแหน่ง/ระดับ</th>
+                    <th style="width: 150px; text-align: center; border: 1px solid;">หมายเหตุ</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($travelapprovaldetail as $show)
-                <tr>
-                    <td style="height: 37px; text-align: center;">{{$loop->index + 1}}</td>
-                    <td style="text-align: center;">{{$show->faculty_member_name}}</td>
-                    <td style="text-align: center;">{{$show->faculty_member_position}}</td>
-                    <td style="text-align: center;">
-                        @if($show->faculty_note === "ไม่มี")
-                            {{-- ถ้าเท่ากับ "ไม่มี" ให้แสดงค่าว่าง --}}
-                        @else
-                            {{ $show->faculty_note }}
-                        @endif
-                    </td>                </tr>
-                @endforeach
-                @for ($i = count($travelapprovaldetail); $i < 18; $i++)
-                <tr>
-                    <td style="height: 37px; text-align: center;"></td>
-                    <td style="height: 37px; "></td>
-                    <td style="height: 37px;"></td>
-                    <td style="height: 37px;"></td>
-                </tr>
-                @endfor
+                <?php
+                // สร้างแถวเปล่าจำนวน 21 แถวก่อน
+                $rows = array_fill(0, 21, ['index' => '', 'faculty_member_name' => '', 'faculty_member_position' => '', 'note' => '']);
+                
+                // เติมข้อมูลลงในแถวที่สร้างไว้
+                $rowIndex = 0;
+                $index = 1; // ลำดับที่เริ่มต้น
+                foreach ($travelapprovaldetail as $show) {
+                    $faculty_member_nameChunks = splitTextIntoLines_two($show->faculty_member_name, 38);
+                
+                    // $faculty_member_positionChunks = splitTextIntoLines_two($show->faculty_member_position . ' / ' . $show->faculty_member_level, 30);
+                    if ($show->faculty_member_level == null) {
+                        $faculty_member_positionChunks = splitTextIntoLines_two($show->faculty_member_position, 30);
+                    } else {
+                        $faculty_member_positionChunks = splitTextIntoLines_two($show->faculty_member_position . ' / ' . $show->faculty_member_level, 30);
+                    }
+                    $maxChunks = max(count($faculty_member_nameChunks), count($faculty_member_positionChunks));
+                
+                    for ($i = 0; $i < $maxChunks; $i++) {
+                        if ($rowIndex >= 21) {
+                            break;
+                        }
+                
+                        $rows[$rowIndex]['index'] = $i == 0 ? $index : '';
+                        $rows[$rowIndex]['faculty_member_name'] = $faculty_member_nameChunks[$i] ?? '';
+                        $rows[$rowIndex]['faculty_member_position'] = $faculty_member_positionChunks[$i] ?? '';
+                        $rowIndex++;
+                    }
+                    $index++;
+                }
+                
+                // แสดงแถวทั้งหมด
+                foreach ($rows as $row) {
+                    echo '<tr>';
+                    echo '<td style="height: 37px; text-align: center; border: 1px solid;">' . $row['index'] . '</td>';
+                    echo '<td style="width: 210px; text-align: left; padding-left: 10px; border: 1px solid;">' . $row['faculty_member_name'] . '</td>';
+                    echo '<td style="width: 190px; text-align: center; border: 1px solid;">' . $row['faculty_member_position'] . '</td>';
+                    echo '<td style="width: 150px; text-align: center; border: 1px solid;">' . $row['note'] . '</td>';
+                    echo '</tr>';
+                }
+                ?>
             </tbody>
         </table>
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="two-point-a">
-            <p>ลงชื่อ....................................หัวหน้าคณะเดินทาง</p>
+            <p>ลงชื่อ.......................................................หัวหน้าคณะเดินทาง</p>
         </div>
 
         <div class="two-point-b">
-            <p>(....................................................)</p>
+            <p>(................................................................)</p>
         </div>
 
-        <span class="two-point-b-employee-name">{{ $travelapproval->prefix}}{{ $travelapproval->name}} {{ $travelapproval->lname}}</span>
+
+        @if ($travelapproval->faculty_count !== null)
+            <span class="two-point-b-employee-name">{{ $travelapproval->prefix }}{{ $travelapproval->name }}
+                {{ $travelapproval->lname }}</span>
+            <span class="two-point-b-employee-position">{{ $travelapproval->position }}</span>
+            <span class="na-date">
+                {{ \Carbon\Carbon::parse($travelapproval->created_at)->translatedFormat('d F') }}
+                {{ \Carbon\Carbon::parse($travelapproval->created_at)->translatedFormat('Y') + 543 }}
+            </span>
+        @endif
+
 
         <div class="two-point-c">
-            <p>ตำแหน่ง...................................................</p>
+            <p>ตำแหน่ง.............................................................</p>
         </div>
 
-        <span class="two-point-b-employee-position">{{ $travelapproval->position }}</span>
-        <span class="na-date">{{$thaiDateWithYear}}</span>
 
 
 
         <div class="two-point-d">
-            <p>วันที่...........................................................</p>
+            <p>วันที่....................................................................</p>
         </div>
 
-        <div>
-            <p>้</p>
-        </div>
+
 
 
     </div>
-    
+
 </body>
+
 </html>

@@ -29,7 +29,16 @@ class TravelApproval extends Model
         'vacation_end_date',
         'budget_reference',
         'action_plan',
+        'car_office',
+        'driver',
         'activity',
+        'section',
+        'division',
+        'phone_number',
+        'vehicle_expenses' , 
+        'fuel_expenses',
+        'food_expenses',
+        
     ];
     //เชื่อมตาราง user
     public function employee()

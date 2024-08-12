@@ -10,6 +10,7 @@ use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -56,7 +57,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'numberid' => ['required', 'integer', 'unique:users'],
+            'numberid' => ['nullable', 'integer', 'unique:users'],
         ]);
     }
 
@@ -68,16 +69,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $level = isset($data['level']) ? $data['level'] : null;
+        $password = isset($data['numberid']) ? $data['numberid'] : Str::random(8); // ถ้าไม่มี numberid ให้ใช้รหัสผ่านแบบสุ่ม
         return User::create([
             'name' => $data['name'],
             'numberid' => $data['numberid'],
-            'password' => Hash::make($data['numberid']),
+            'password' => Hash::make($password),
             'is_admin' => '0',
             'prefix' => $data['prefix'],
             'lname' => $data['lname'],
             'position' => $data['position'],
-            'level' => "null",
-            'department' => "null",
+            'level' => $level, // ใช้ตัวแปร $level ที่เตรียมไว้
+            'department' => $data['department'], //สังกัด
+            'section' => isset($data['section']) && !empty($data['section']) ? $data['section'] : null,
+            'division' => isset($data['division']) && !empty($data['division']) ? $data['division'] : null,
+            'phone_number' => $data['phone_number'], //เบอร์ติดต่อ
         ]);
     }
 
@@ -98,6 +105,11 @@ class RegisterController extends Controller
         $update->name = $request->input('firstName');
         $update->lname = $request->input('lastName');
         $update->position = $request->input('position');
+        $update->level = $request->input('level');
+        $update->department = $request->input('department');
+        $update->section = $request->input('section');
+        $update->division = $request->input('division');
+        $update->phone_number = $request->input('phone_number');
         $update->save();
         return redirect()->back()->with('success','ข้อมูลอัพเดตแล้ว');
     }

@@ -89,7 +89,7 @@
         .d-flex a {
             padding: 10px 20px;
             margin: 1px;
-            background-color: #b80b0b;
+            background-color: #d43131;
             color: white;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s, border-color 0.3s;
@@ -104,7 +104,7 @@
             text-align: right;
             font-size: 14px;
         }
-        
+
         .breadcrumb {
             background-color: #ffffff;
             /* กำหนดสีพื้นหลังของ breadcrumb */
@@ -127,37 +127,46 @@
         #notcolor a {
             color: #605e5e;
         }
+
+        .not-clickable {
+            pointer-events: none;
+            opacity: 1;
+        }
     </style>
 
-@if (Auth::user() && Auth::user()->is_admin == 1)
-<ol class="breadcrumb">
-    <li class="breadcrumb-item" id="notcolor"><a href="{{ route('admin.home') }}">หน้าแรก</a></li>
-    <li class="breadcrumb-item" id="notcolor"><a href="{{route('userdetail',['id'=>$travelApproval->employee_id])}}">รายละเอียด</a></li>
-    <li class="breadcrumb-item" id="notcolor"><a href="{{route('historyuser',['id'=>$travelApproval->employee_id])}}">ประวัติขอใบอนุมัติ</a></li>
-    <li class="breadcrumb-item" id="now"><a href="">รายละเอียดใบอนุมัติเดินทาง</a></li>
-</ol>
-@elseif(Auth::user() && Auth::user()->is_admin == 0)
-<ol class="breadcrumb">
-    <li class="breadcrumb-item" id="notcolor"><a href="{{ route('homepage') }}">หน้าแรก</a></li>
-    <li class="breadcrumb-item" id="now"><a href="">รายละเอียดใบอนุมัติเดินทาง</a></li>
+    @if (Auth::user() && Auth::user()->is_admin == 1)
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="notcolor"><a href="{{ route('admin.home') }}">หน้าแรก</a></li>
+            <li class="breadcrumb-item" id="notcolor"><a
+                    href="{{ route('userdetail', ['id' => $travelApproval->employee_id]) }}">รายละเอียด</a></li>
+            <li class="breadcrumb-item" id="notcolor"><a
+                    href="{{ route('historyuser', ['id' => $travelApproval->employee_id]) }}">ประวัติขอใบอนุมัติ</a></li>
+            <li class="breadcrumb-item" id="now"><a href="">รายละเอียดใบอนุมัติเดินทาง</a></li>
+        </ol>
+    @elseif(Auth::user() && Auth::user()->is_admin == 0)
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item" id="notcolor"><a href="{{ route('homepage') }}">หน้าแรก</a></li>
+            <li class="breadcrumb-item" id="now"><a href="">รายละเอียดใบอนุมัติเดินทาง</a></li>
 
-</ol>
-
-@endif
+        </ol>
+    @endif
     <h2>รายละเอียดใบอนุมัติเดินทาง</h2>
     <br>
-    {{-- <a href="{{ route('printpdf', ['id' => $travelApproval->id]) }}" class="button-style"
-    target="_blank">พิมพ์ใบอนุมัติเดินทาง</a> --}}
-
     <div class="d-flex flex-nowrap gap-2">
-        <a class="nav-link rounded" href="{{ route('printpdf', ['id' => $travelApproval->id]) }}"
-            target="_blank">พิมพ์ใบอนุมัติเดินทาง</a>
-        <a class="nav-link rounded" href="#" style="pointer-events: none; user-select: none;">พิมพ์ใบขอใช้รถส่วนกลาง</a>
-        <a class="nav-link rounded" href="#" style="pointer-events: none; user-select: none;">พิมพ์ใบเบิกเบี้ยงเลี้ยง</a>
-        <a class="nav-link rounded" href="#" style="pointer-events: none; user-select: none;">พิมพ์หลักฐานการจ่ายเงิน</a>
+        <a class="nav-link rounded" href="{{ route('printpdf', ['id' => $travelApproval->id]) }}" target="_blank">พิมพ์ใบอนุมัติเดินทาง</a>
+
+        <a class="nav-link rounded" href="{{ route('pdfexpenses', ['id' => $travelApproval->id]) }}" target="_blank">พิมพ์ตารางประมาณค่าใช้จ่ายในการเดินทาง</a>
+
+        @if($travelApproval->transport === 'รถยนต์ สนง.')
+            <a class="nav-link rounded" href="{{ route('newpubliccar', ['id' => $travelApproval->id]) }}" target="_blank">พิมพ์ใบขอใช้รถส่วนกลาง</a>
+        @else
+            <a class="nav-link rounded" href="#" style="pointer-events: none; user-select: none; color: rgb(255, 255, 255);">พิมพ์ใบขอใช้รถส่วนกลาง</a>
+        @endif
+    
+        <a class="nav-link rounded" href="{{ route('fileprice') }}" target="_blank">พิมพ์ใบเบิกค่าใช้จ่ายในการเดินทาง(ยังไม่ได้ทำ)</a>
+        <a class="nav-link rounded" href="#" style="pointer-events: none; user-select: none;">พิมพ์หลักฐานการจ่ายเงิน(ยังไม่ได้ทำ)</a>
     </div>
-
-
+    
     <div class="form-container">
         <?php
         $thaiDate = \Carbon\Carbon::parse($travelApproval->created_at)
@@ -167,21 +176,18 @@
             ->addYears(543)
             ->format('Y');
         $thaiDateWithYear = str_replace((string) \Carbon\Carbon::parse($travelApproval->created_at)->year, (string) $thaiYear, $thaiDate);
-        $thaiTime = \Carbon\Carbon::parse($travelApproval->created_at)->locale('th')->isoFormat('LT');
-    ?>
-    <p id="transaction_date">วันเวลาที่ขอใบอนุมัติ: {{ $thaiDateWithYear }} เวลา {{ $thaiTime }} น.</p>
-
-            <div class="container">
+        $thaiTime = \Carbon\Carbon::parse($travelApproval->created_at)
+            ->locale('th')
+            ->isoFormat('LT');
+        ?>
+        <p id="transaction_date">วันเวลาที่ขอใบอนุมัติ: {{ $thaiDateWithYear }} เวลา {{ $thaiTime }} น.</p>
+        <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <label for="prefix" class="form-label">เรียน</label>
                     <input type="text" class="form-control" value="{{ $travelApproval->at }}" readonly>
                 </div>
 
-                {{-- <div class="col-md-4">
-                <label for="prefix" class="form-label">วันเวลาที่ขอใบอนุมัติ</label>
-                <input type="text" class="form-control" value="{{ $travelApproval->at }}" readonly>
-            </div> --}}
 
             </div>
             <div class="row">
@@ -218,6 +224,21 @@
 
 
 
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="section" class="form-label">แผนก</label>
+                    <input type="text" class="form-control" value="{{ $travelApproval->section }}" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="division" class="form-label">กอง</label>
+                    <input type="text" class="form-control" value="{{ $travelApproval->division }}" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="phone_number" class="form-label">เบอร์ติดต่อ</label>
+                    <input type="text" class="form-control" value="{{ $travelApproval->phone_number }}" readonly>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-4">
                     <label for="budget_reference" class="form-label">งบประมาณที่ใช้จ่ายจากมาตรา</label>
@@ -264,8 +285,9 @@
             @endforeach
             <div class="col-md-4">
                 จำนวนคนที่เดินทางไปปฏิบัติงานเป็นหมู่คณะ(คน)
-                <input type="text" class="form-control" value="{{ $travelApproval->faculty_count }}" readonly>
+                <input type="text" class="form-control" value="{{ $travelApproval->faculty_count ?? 0 }}" readonly>
             </div>
+            
             มีรายชื่อดังต่อไปนี้
             @foreach ($travelapprovaldetail as $show)
                 <div class="row">
@@ -279,23 +301,79 @@
                         <input type="text" class="form-control" value="{{ $show->faculty_member_position }}"
                             readonly>
                     </div>
+                    <div class="col-md-4">
+                        <label for="action_plan" class="form-label">ระดับ</label>
+                        <input type="text" class="form-control" value="ระดับ&nbsp;{{ $show->faculty_member_level }}"
+                            readonly>
+                    </div>
 
                 </div>
             @endforeach
-
-
             <br>
             <h4>พาหนะส่วนตัว</h4>
             <div class="row">
                 <br>
-                <div class="col-md-4">
-                    <label for="budget_reference" class="form-label">ประเภท</label>
-                    <input type="text" class="form-control" value="{{ $travelApproval->transport }}" readonly>
-                </div>
-                <div class="col-md-4">
-                    <label for="action_plan" class="form-label">หมายเลขทะเบียนรถ</label>
-                    <input type="text" class="form-control" value="{{ $travelApproval->vehicle_number }}" readonly>
-                </div>
+                @if ($travelApproval->transport == 'รถยนต์ สนง.')
+                    <div class="col-md-3">
+                        <label for="budget_reference" class="form-label">ประเภท</label>
+                        <input type="text" class="form-control" value="{{ $travelApproval->transport }}" readonly>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="action_plan" class="form-label">เลขทะเบียนรถ</label>
+                        <input type="text" class="form-control" value="{{ $travelApproval->vehicle_number }}"
+                            readonly>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">รถยนต์สำนักงาน</label>
+                        <div class="form-check">
+                            <input class="form-check-input not-clickable" type="radio" name="car_office"
+                                value="TOYOTA (รถตู้)"
+                                {{ $travelApproval->car_office == 'TOYOTA (รถตู้)' ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                TOYOTA (รถตู้)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input not-clickable" type="radio" name="car_office"
+                                value="TOYOTA (VIGO)"
+                                {{ $travelApproval->car_office == 'TOYOTA (VIGO)' ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                TOYOTA (VIGO)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">ผู้ขับ</label>
+                        <div class="form-check">
+                            <input class="form-check-input not-clickable" type="radio" name="driver"
+                                id="driver_damrong" value="นายดำรงค์ สืบพันธ์"
+                                {{ $travelApproval->driver == 'นายดำรงค์ สืบพันธ์' ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                นายดำรงค์ สืบพันธ์
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input not-clickable" type="radio" name="driver"
+                                id="driver_naruthep" value="นายนฤเทพ หัทไทย"
+                                {{ $travelApproval->driver == 'นายนฤเทพ หัทไทย' ? 'checked' : '' }}>
+                            <label class="form-check-label">
+                                นายนฤเทพ หัทไทย
+                            </label>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-4">
+                        <label for="budget_reference" class="form-label">ประเภท</label>
+                        <input type="text" class="form-control" value="{{ $travelApproval->transport }}" readonly>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="action_plan" class="form-label">เลขทะเบียนรถ</label>
+                        <input type="text" class="form-control" value="{{ $travelApproval->vehicle_number }}"
+                            readonly>
+                    </div>
+                @endif
 
             </div>
 
@@ -336,8 +414,6 @@
             @endif
         </div>
     </div>
-
-
     <!-- Modalแสดงข้อความสำเร็จ-->
     <div class="modal fade" id="showsuccessss" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document"
@@ -349,8 +425,6 @@
                         <img src="{{ asset('images/success.png') }}" alt="Success Image" width="50ox" height="50px">
                     </center>
 
-
-
                     <p>
                         <center>ขออนุมัติสำเร็จ</center>
                     </p>
@@ -360,8 +434,6 @@
             </div>
         </div>
     </div>
-
-
     <script>
         @if (session('success'))
             // แสดง Modal หลังจาก 500 มิลลิวินาที

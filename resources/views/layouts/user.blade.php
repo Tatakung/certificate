@@ -13,6 +13,9 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
 
 
 
@@ -49,10 +52,101 @@
         .navbar {
             background-color: #34a04b !important;
         }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #127A0E;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-item {
+            margin: 0 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-nav .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.75rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Dropdown Styles */
+        .dropdown-menu {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: #f8f9fa;
+            color: #127A0E;
+        }
+
+        .dropdown-divider {
+            border-top-color: #e9ecef;
+        }
+
+        /* User Info Style */
+        .navbar-nav .nav-item p.nav-link {
+            margin-bottom: 0;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+
+            .navbar-nav .nav-item {
+                margin: 5px 0;
+            }
+        }
     </style>
 </head>
 
 <body>
+
     @if (Auth::user() && Auth::user()->is_admin == 1)
         {{-- ทำอะไรสักอย่าง ถ้าผู้ใช้เป็น admin (is_admin == 1) --}}
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -64,8 +158,9 @@
                 </button>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <p class="nav-link" style="margin-bottom: 0; color: #ffffff;">
-                            คุณคือ : Admin</p>
+                        <p class="nav-link">
+                            <i class="bi bi-person-circle me-2"></i>คุณคือ : Admin
+                        </p>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -86,19 +181,20 @@
                         </li> --}}
                         <li class="nav-item dropdown rounded">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false"><i></i>Profile</a>
-                            {{-- class="bi bi-person-fill me-2" --}}
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-fill me-2"></i>Profile
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                {{-- <li><a class="dropdown-item" href="#">Account</a></li> --}}
-                                {{-- <li><a class="dropdown-item" href="#">Another action</a></li> --}}
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a></li>
+                                        <i class="bi bi-box-arrow-right me-2"></i>{{ __('Logout') }}
+                                    </a>
+                                </li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -127,7 +223,7 @@
                     </li>
                 </ul>
 
-                
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-md-auto gap-2">
                         <li class="nav-item rounded">

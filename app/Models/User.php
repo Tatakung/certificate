@@ -26,7 +26,10 @@ class User extends Authenticatable
         'position',
         'level',
         'department',
-        'is_admin'
+        'is_admin',
+        'section',
+        'division',
+        'phone_number',
     ];
 
 
